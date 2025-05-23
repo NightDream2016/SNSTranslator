@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "異國譯語通 SNSTranslator",
+  "version": "1.0",
+  "description": "專供社群網路使用的翻譯小工具。會自動偵測使用者是否正在輸入文字，而後將使用者選擇的文字翻譯為外國語言；同時將非輸入區的文字翻譯為本國語言。",
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "activeTab",
+    "storage",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "loading.gif"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon48.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content_script.js", "src/translate_worker.js", "src/DOMExtension.js"
+      ]
+    }
+  ]
+}

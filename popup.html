@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>翻譯設定</title>
+  <style>
+    body { font-family: sans-serif; padding: 1em; width: 250px; }
+    label, select, input { display: block; margin-top: 0.5em; width: 100%; }
+    button { margin-top: 1em; width: 100%; }
+  </style>
+</head>
+<body>
+  <label>自己的語言 (from)</label>
+  <select id="from">
+    <option value="Traditional Chinese">繁體中文</option>
+    <option value="English">英文</option>
+    <option value="Japanese">日文</option>
+  </select>
+
+  <label>對方語言 (to)</label>
+  <select id="to">
+    <option value="Traditional Chinese">繁體中文</option>
+    <option value="English">英文</option>
+    <option value="Japanese">日文</option>
+  </select>
+
+  <label>模組 (LLM Model)</label>
+  <select id="model">
+    <option value="google/gemini-2.5-flash-preview">Gemini 2.5 Flash (較快但無思考)</option>
+    <option value="google/gemini-2.5-flash-preview:thinking">Gemini 2.5 Flash Exprimental(較慢但有思考)</option>
+    <option value="x-ai/grok-3-beta">Grok 3(速度均衡)</option>
+    <option value="openai/gpt-4o">ChatGPT-4o(速度均衡，但有NSFW限制)</option>
+    <option value="google/gemini-2.5-pro-preview">Gemini 2.5 Pro Preview (速度較慢)</option>
+  </select>
+
+  <label>API Key</label>
+  <input type="text" id="apikey" placeholder="輸入你的 OpenRouter API Key" />
+
+  <button id="saveBtn">儲存</button>
+  <script src="src/popup.js"></script>
+
+  
+</body>
+</html>
