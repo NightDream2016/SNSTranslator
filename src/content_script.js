@@ -1,4 +1,4 @@
-tlet translation = null
+translation = null
 const maxSizePerRequest = 1000 //每個Request當中的文字長度總合
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
