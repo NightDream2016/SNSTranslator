@@ -17,11 +17,10 @@ const apiDefine = {
         ]
     } 
 }
-const defaultApi = apiDefine.google
 const defaults = {
     apikeys: Object.fromEntries(Object.keys(apiDefine).map(key => [key, ""])),
     from: "English",
     to: "Japanese",
-    apitype: defaultApi.id,
+    apitype: "google",
     models: Object.fromEntries(Object.keys(apiDefine).map(key => [key, apiDefine[key].models[0].id])),
 } 

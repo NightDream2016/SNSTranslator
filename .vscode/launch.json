@@ -10,10 +10,10 @@
             "type": "msedge",
             // "url": "https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E",
             "url": "https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E",
-            "webRoot": "${workspaceFolder}",
+            "webRoot": "${workspaceFolder}/package",
             "runtimeArgs": [
-                "--load-extension=${workspaceFolder}",
-                "--disable-extensions-except=${workspaceFolder}",
+                "--load-extension=${workspaceFolder}/package",
+                "--disable-extensions-except=${workspaceFolder}/package",
                 "--remote-debugging-port=9222"
             ]
         },   
