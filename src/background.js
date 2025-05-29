@@ -7,12 +7,15 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-  const settings = await chrome.storage.local.get(["from", "to", "apikey", "model"]);
-  const from = settings.from || "English";
-  const to = settings.to || "Japanese";
-  const apikey = settings.apikey;
-  const model = settings.model || "google/gemini-2.5-flash-preview";
-  chrome.tabs.sendMessage(tab.id, { from: from, to: to, apikey: apikey, model: model});
+  const storage = await chrome.storage.local.get(["from", "to", "apikeys", "models", "apitype"])
+  let msg = {
+        from: storage.from || defaults.from,
+        to: storage.to || defaults.to,
+        apikeys: storage.apikeys || defaults.apikeys,
+        models: storage.models || defaults.models,
+        apitype: storage.apitype || defaults.apitype
+  }
+  chrome.tabs.sendMessage(tab.id, msg);
 });
 
 

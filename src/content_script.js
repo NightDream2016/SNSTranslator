@@ -2,7 +2,7 @@ translation = null
 const maxSizePerRequest = 1000 //每個Request當中的文字長度總合
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-  translation = new TranslateWorker(msg.apikey, msg.model)
+  translation = new TranslateWorker(msg.apikeys, msg.apitype, msg.models)
   processor = new PageTranslator(msg.from, msg.to)
   processor.processSelectedNodes()
 });
