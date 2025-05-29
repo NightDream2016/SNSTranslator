@@ -1,4 +1,4 @@
-const apiDefine = {
+export const apiDefine = {
     google: {
         name: "Google Gemini",
         models: [
@@ -23,7 +23,7 @@ const languageDefine = [
     {name: "英文", id: "en", prompt: "English"},
 ]
 
-const defaults = {
+export const defaults = {
     apikeys: Object.fromEntries(Object.keys(apiDefine).map(key => [key, ""])),
     from: "Traditional Chinese",
     to: "Japanese",
