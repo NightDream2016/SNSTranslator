@@ -17,9 +17,15 @@ const apiDefine = {
         ]
     } 
 }
+const languageDefine = [
+    {name: "繁體中文", id: "zh-TW", prompt: "Traditional Chinese"},
+    {name: "日文", id: "jp", prompt: "Japanese"},
+    {name: "英文", id: "en", prompt: "English"},
+]
+
 const defaults = {
     apikeys: Object.fromEntries(Object.keys(apiDefine).map(key => [key, ""])),
-    from: "English",
+    from: "Traditional Chinese",
     to: "Japanese",
     apitype: "google",
     models: Object.fromEntries(Object.keys(apiDefine).map(key => [key, apiDefine[key].models[0].id])),
