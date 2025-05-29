@@ -51,7 +51,7 @@ saveBtn.onclick = () => {
 setup();
 
 async function setup() {
-    await loadDataFromStorage();
+    await syncDataFromStorage();
     from.value = data.from 
     to.value = data.to
     updateApiList();
@@ -59,7 +59,7 @@ async function setup() {
     updateModelOptions();
 }
 
-async function loadDataFromStorage() {
+async function syncDataFromStorage() {
     const storage = await chrome.storage.local.get(["from", "to", "apikeys", "models", "apitype"])
     data = {
         from: storage.from || defaults.from,
@@ -68,6 +68,7 @@ async function loadDataFromStorage() {
         models: storage.models || defaults.models,
         apitype: storage.apitype || defaults.apitype
     }
+    chrome.storage.local.set(data)
 }
 
 function updateApiList() {

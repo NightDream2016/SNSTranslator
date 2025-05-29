@@ -34,7 +34,7 @@ class TranslateWorker {
         const apitype = this.apitype
         const apikey = this.apikeys[apitype]
         if (!apikey || apikey === "") {
-            throw new Error("請輸入你的APIKey")
+            throw new Error("請輸入你的APIKey。")
         }
         let parsed = null
         if (apitype === "google") {
