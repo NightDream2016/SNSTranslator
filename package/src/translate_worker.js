@@ -115,7 +115,8 @@ class TranslateWorker {
         if (response.error) {
             throw new Error(`Response Error: ${JSON.stringify(response.error)}`)
         }
-        const functionCall = response.candidates?.[0]?.content?.parts?.[0]?.functionCall;
+        const functionCalls = response.candidates?.[0]?.content?.parts?.filter(part => part.functionCall);
+        const functionCall = functionCalls?.[0]?.functionCall;
         if (!functionCall) {
             throw new Error(`Response Format is wrong: ${JSON.stringify(response)}`)
         }
